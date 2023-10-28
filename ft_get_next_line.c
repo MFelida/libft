@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 20:38:30 by mfelida           #+#    #+#             */
-/*   Updated: 2023/10/28 16:23:47 by mfelida          ###   ########.fr       */
+/*   Updated: 2023/10/28 16:27:25 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	extend_str(t_string *s, t_ring_buffer *rb, ssize_t len);
 size_t	rb_read(t_ring_buffer *rb, char *dest);
 ssize_t	rb_read_file(t_ring_buffer *rb, int fd);
 
-char	*get_next_line(int fd)
+char	*ft_gnl(int fd)
 {
 	static t_ring_buffer	rb = {0};
 	t_string				res;

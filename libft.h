@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:22:20 by mfelida           #+#    #+#             */
-/*   Updated: 2023/10/28 16:22:47 by mfelida          ###   ########.fr       */
+/*   Updated: 2023/10/28 16:27:25 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ ssize_t	ft_putpntr_fd(void *p, int fd);
 #  define GNL_BUFFER_SIZE 42
 # endif
 
-char	*get_next_line(int fd);
+char	*ft_gnl(int fd);
 
 int	ft_printf(const char *fmt, ...);
 
