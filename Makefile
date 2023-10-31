@@ -26,6 +26,9 @@ $(NAME): $(OBJS)
 $(OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+debug: CFLAGS += -ggdb
+debug: all
+
 re: fclean all
 
 clean:
@@ -34,4 +37,4 @@ clean:
 fclean: clean
 	@ rm -f $(NAME)
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all debug
