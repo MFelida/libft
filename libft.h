@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:22:20 by mfelida           #+#    #+#             */
-/*   Updated: 2023/10/28 16:27:25 by mfelida          ###   ########.fr       */
+/*   Updated: 2024/01/08 14:15:42 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,19 @@ ssize_t	ft_putpntr_fd(void *p, int fd);
 char	*ft_gnl(int fd);
 
 int	ft_printf(const char *fmt, ...);
+
+typedef struct s_vector
+{
+        size_t  size;
+        size_t  cap;
+        size_t  elem_size;
+        void    *data;
+}       t_vector;
+
+t_vector        *vector_new(size_t n_elem, size_t elem_size);
+size_t          vector_pushback(t_vector *vector, void *data);
+const void      *vector_at(const t_vector *const v, size_t idx);
+void            vector_free(t_vector **vector);
 
 typedef struct s_list
 {
