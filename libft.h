@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:22:20 by mfelida           #+#    #+#             */
-/*   Updated: 2024/01/08 14:15:42 by mfelida          ###   ########.fr       */
+/*   Updated: 2024/01/23 16:12:13 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ ssize_t	ft_putpntr_fd(void *p, int fd);
 char	*ft_gnl(int fd);
 
 int	ft_printf(const char *fmt, ...);
+int	ft_fprintf(int fd, const char *fmt, ...);
 
 typedef struct s_vector
 {
