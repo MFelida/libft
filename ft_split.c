@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:19:39 by mfelida           #+#    #+#             */
-/*   Updated: 2023/10/26 11:47:49 by mfelida          ###   ########.fr       */
+/*   Updated: 2024/01/28 14:52:31 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 static size_t	_ft_wordcount(char const *s, char c);
 static size_t	_ft_wordlen(char const *s, char c);
 static char		*_ft_strndup(char const *s, size_t n);
-static void		*_free_split(char ***split);
 
 char	**ft_split(char const *s, char c)
 {
@@ -38,7 +37,7 @@ char	**ft_split(char const *s, char c)
 		len = _ft_wordlen(s, c);
 		res[i] = _ft_strndup(s, len);
 		if (!(res[i++]))
-			return (_free_split(&res));
+			return (ft_split_free(res));
 		s += len;
 	}
 	res[i] = NULL;
@@ -87,15 +86,15 @@ static char	*_ft_strndup(const char *s, size_t n)
 	return (res);
 }
 
-static void	*_free_split(char ***split)
+char	**ft_split_free(char **split)
 {
 	char	**temp;
 
-	temp = *split;
+	temp = split;
 	while (**split)
 	{
-		free(**split);
-		(*split)++;
+		free(*split);
+		(split)++;
 	}
 	free(temp);
 	return (NULL);
