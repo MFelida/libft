@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_get_next_line_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 20:38:28 by mfelida           #+#    #+#             */
-/*   Updated: 2023/10/28 16:23:54 by mfelida          ###   ########.fr       */
+/*   Updated: 2024/01/28 15:10:00 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,6 @@ ssize_t	rb_read_file(t_ring_buffer *rb, int fd)
 			rb->full = 1;
 	}
 	return (ret);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-
-	if (!size)
-		return (0);
-	i = 1;
-	while (src && *src && size > 0 && i++ < size)
-		*dst++ = *src++;
-	*dst = '\0';
-	return (i);
 }
 
 void	extend_str(t_string *s, t_ring_buffer *rb, ssize_t len)
