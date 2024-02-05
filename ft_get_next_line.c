@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 20:38:30 by mfelida           #+#    #+#             */
-/*   Updated: 2023/10/28 16:27:25 by mfelida          ###   ########.fr       */
+/*   Updated: 2024/02/05 13:28:35 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-typedef struct s_string
-{
-	char	*str;
-	size_t	len;
-	size_t	cap;
-}	t_string;
-
-typedef struct s_ring_buffer
-{
-	char	data[GNL_BUFFER_SIZE];
-	ssize_t	ridx;
-	ssize_t	widx;
-	char	full;
-}	t_ring_buffer;
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 void	extend_str(t_string *s, t_ring_buffer *rb, ssize_t len);

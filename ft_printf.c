@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:54:32 by mfelida           #+#    #+#             */
-/*   Updated: 2024/01/23 16:17:51 by mfelida          ###   ########.fr       */
+/*   Updated: 2024/02/05 13:26:32 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <stdarg.h>
 
 static int	ft_vfprintf(int fd, const char **c, va_list arg);
-
 
 int	ft_printf(const char *fmt, ...)
 {
