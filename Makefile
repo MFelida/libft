@@ -18,6 +18,7 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 AR = ar
 AFLAGS = -crs
 
+all: CFLAGS += -O3
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -26,8 +27,8 @@ $(NAME): $(OBJS)
 $(OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-debug: CFLAGS += -ggdb
-debug: all
+debug: CFLAGS += -ggdb -O0
+debug: $(NAME)
 
 re: fclean all
 
