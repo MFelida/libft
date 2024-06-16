@@ -2,9 +2,10 @@
 NAME = libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-OBJS = $(SRCS:.c=.o)
-SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
+CFLAGS = -Wall -Wextra -Werror -I.
+
+SRC_DIR = src
+SRC_FILES = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
 	ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c \
@@ -14,6 +15,11 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 	ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c \
 	ft_lstnew_bonus.c ft_lstsize_bonus.c
+SRCS = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
+
+OBJ_DIR = obj
+OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJS = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
 
 AR = ar
 AFLAGS = -crs
@@ -24,8 +30,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(AFLAGS) $(NAME) $(OBJS)
 
-$(OBJS): %.o: %.c
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 debug: CFLAGS += -ggdb -O0
 debug: $(NAME)
@@ -33,7 +42,7 @@ debug: $(NAME)
 re: fclean all
 
 clean:
-	@ rm -f $(OBJS) $(BOBJS)
+	@ rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@ rm -f $(NAME)
