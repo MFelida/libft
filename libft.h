@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:22:20 by mfelida           #+#    #+#             */
-/*   Updated: 2024/02/11 13:44:27 by mfelida          ###   ########.fr       */
+/*   Updated: 2024/06/16 17:08:55 by mfelida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
+int			ft_isspace(char c);
 int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
@@ -31,6 +32,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size);
 char		*ft_strdup(const char *s);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
 int			ft_atoi(const char *nptr);
+int			ft_atoi_base(const char *s, const char *base);
 
 void		*ft_memset(void *s, int c, size_t n);
 void		ft_bzero(void *s, size_t n);
