@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 16:17:11 by mfelida           #+#    #+#             */
-/*   Updated: 2024/06/17 12:24:11 by mfelida          ###   ########.fr       */
+/*   Updated: 2025/02/18 17:36:52 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	_valid_radix(const char *s)
 		return (0);
 	if (ft_strchr(s, '-') || ft_strchr(s, '+'))
 		return (0);
-	while (*(s+1))
+	while (*(s + 1))
 	{
-		if (ft_strchr(s+1, *s))
+		if (ft_strchr(s + 1, *s))
 			return (0);
 		++s;
 	}
