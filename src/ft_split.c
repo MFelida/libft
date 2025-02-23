@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:19:39 by mfelida           #+#    #+#             */
-/*   Updated: 2024/01/28 16:12:03 by mfelida          ###   ########.fr       */
+/*   Updated: 2025/02/24 13:56:56 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ char	**ft_split_free(char **split)
 {
 	char	**temp;
 
+	if (!split)
+		return (NULL);
 	temp = split;
 	while (*split)
 	{
