@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 21:12:35 by mfelida           #+#    #+#             */
-/*   Updated: 2024/10/03 22:05:32 by mfelida          ###   ########.fr       */
+/*   Updated: 2025/03/04 11:43:32 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,30 @@
 #include <unistd.h>
 #include <math.h>
 
+#define BUFFER_SIZE 256
+
 char	*ft_ftoa(float f, size_t n_after_period)
 {
-	char	*res;
+	char	res[BUFFER_SIZE];
 	char	*temp;
-	size_t	len;
 
 	if (n_after_period == 0)
 		return (ft_itoa(roundf(f)));
 	temp = ft_itoa(f);
 	if (!temp)
 		return (NULL);
-	len = ft_strlen(temp);
-	res = malloc((len + 2 + n_after_period) * sizeof(char));
-	if (!res)
-	{
-		free(temp);
-		return (NULL);
-	}
-	ft_strlcpy(res, temp, len + 1);
+	res[0] = '\0';
+	if (f < 0 && f > -1)
+		ft_strlcpy(res, "-", BUFFER_SIZE);
+	ft_strlcat(res, temp, BUFFER_SIZE);
 	free(temp);
-	res[len] = '.';
+	ft_strlcat(res, ".", BUFFER_SIZE);
 	f = fabsf(f);
 	f = (f - floorf(f)) * powf(10, n_after_period);
 	temp = ft_itoa(roundf(f));
-	ft_strlcpy(res + len + 1, temp, n_after_period + 1);
+	if (!temp)
+		return (NULL);
+	ft_strlcat(res, temp, BUFFER_SIZE);
 	free(temp);
-	return (res);
+	return (ft_strdup(res));
 }
