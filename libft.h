@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:22:20 by mfelida           #+#    #+#             */
-/*   Updated: 2025/02/26 14:15:00 by mifelida         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:27:48 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			ft_atoi_base(const char *s, const char *base);
 void		*ft_memset(void *s, int c, size_t n);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
-void		*ft_realloc(void *ptr, size_t size);
+void		*ft_realloc(void *ptr, size_t new_size, size_t old_size);
 void		*ft_memcpy(void *dest, void const *src, size_t n);
 void		*ft_memmove(void *dest, void const *src, size_t n);
 void		*ft_memchr(void *s, int c, size_t n);
