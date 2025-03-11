@@ -26,6 +26,8 @@ OBJS = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
 AR = ar
 AFLAGS = -crs
 
+GNL_BUFFER_SIZE = 1024
+
 all: CFLAGS += -O3
 all: $(NAME)
 
@@ -33,7 +35,7 @@ $(NAME): $(OBJS)
 	$(AR) $(AFLAGS) $(NAME) $(OBJS)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -DGNL_BUFFER_SIZE="$(GNL_BUFFER_SIZE)" -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
