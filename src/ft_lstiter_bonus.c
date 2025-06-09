@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:19:39 by mfelida           #+#    #+#             */
-/*   Updated: 2023/10/20 12:38:38 by mfelida          ###   ########.fr       */
+/*   Updated: 2025/07/01 17:28:53 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void*))
 		return ;
 	while (lst)
 	{
-		f(lst->content);
+		f(lst);
 		lst = lst->next;
 	}
 }

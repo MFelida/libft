@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:19:39 by mfelida           #+#    #+#             */
-/*   Updated: 2023/10/26 11:47:13 by mfelida          ###   ########.fr       */
+/*   Updated: 2025/07/01 17:30:02 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 	head = ft_lstnew(NULL);
 	if (!head)
 		return (NULL);
-	head->content = f(lst->content);
+	head = f(lst);
 	lst = lst->next;
 	curr = head;
 	while (lst)
@@ -34,7 +34,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 			return (NULL);
 		}
 		curr = curr->next;
-		curr->content = f(lst->content);
+		curr = f(lst);
 		lst = lst->next;
 	}
 	return (head);
