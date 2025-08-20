@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:22:20 by mfelida           #+#    #+#             */
-/*   Updated: 2025/03/05 14:27:48 by mifelida         ###   ########.fr       */
+/*   Updated: 2025/08/20 15:09:38 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ void		*ft_memcpy(void *dest, void const *src, size_t n);
 void		*ft_memmove(void *dest, void const *src, size_t n);
 void		*ft_memchr(void *s, int c, size_t n);
 int			ft_memcmp(void *s1, void *s2, size_t n);
+
+# define _N	_Noreturn
+
+int			ft_atexit(void (*func)(void));
+_N void		ft_exit(int status);
+# undef		_N
 
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);

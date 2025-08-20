@@ -13,7 +13,7 @@ SRC_FILES = ft_atoi.c ft_atoi_base.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 	ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
 	ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
 	ft_putuint_fd.c ft_puthex_fd.c ft_printf.c ft_get_next_line.c \
-	ft_realloc.c \
+	ft_realloc.c ft_exit.c\
 	ft_get_next_line_utils.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 	ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c \
 	ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
@@ -40,7 +40,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-debug: CFLAGS += -ggdb -O0
+debug: CFLAGS += -gdwarf-2 -O0
 debug: $(NAME)
 
 re: fclean all
