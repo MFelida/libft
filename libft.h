@@ -6,13 +6,14 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:22:20 by mfelida           #+#    #+#             */
-/*   Updated: 2025/08/20 15:09:38 by mifelida         ###   ########.fr       */
+/*   Updated: 2025/08/28 16:10:02 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+#include <stddef.h>
 # include <unistd.h>
 
 int			ft_isalpha(int c);
@@ -89,6 +90,7 @@ char		*ft_gnl(int fd);
 
 int			ft_printf(const char *fmt, ...);
 int			ft_fprintf(int fd, const char *fmt, ...);
+int			ft_print_err(const char *error_msg, size_t n_context_str, ...);
 
 typedef struct s_list
 {
