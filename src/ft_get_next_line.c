@@ -39,8 +39,8 @@ char	*ft_gnl(int fd)
 	if (!(res.str))
 		return (NULL);
 	res.len = rb_read(&rb, res.str);
-	while ((!((rb).full) && ((rb).ridx == (rb).widx)) \
-			&& ret == GNL_BUFFER_SIZE && res.str[res.len - 1] != '\n')
+	while ((!((rb).full) && ((rb).ridx == (rb).widx))
+		&& ret == GNL_BUFFER_SIZE && res.str[res.len - 1] != '\n')
 	{
 		ret = rb_read_file(&rb, fd);
 		extend_str(&res, &rb, ret);

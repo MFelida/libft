@@ -13,7 +13,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stddef.h>
+# include <stddef.h>
 # include <unistd.h>
 
 int			ft_isalpha(int c);
@@ -48,7 +48,7 @@ int			ft_memcmp(void *s1, void *s2, size_t n);
 
 int			ft_atexit(void (*func)(void));
 _N void		ft_exit(int status);
-# undef		_N
+# undef _N
 
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);

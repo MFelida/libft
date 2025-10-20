@@ -26,7 +26,8 @@ static	int	_print_context(size_t n_context_str, va_list args)
 	res = 0;
 	while (n_context_str > 0 && printf_ret >= 0)
 	{
-		printf_ret = ft_fprintf(STDERR_FILENO, "%s: ", va_arg(args, const char *));
+		printf_ret = ft_fprintf(STDERR_FILENO, "%s: ",
+				va_arg(args, const char *));
 		res += printf_ret;
 		n_context_str--;
 	}
@@ -34,7 +35,6 @@ static	int	_print_context(size_t n_context_str, va_list args)
 		return (printf_ret);
 	return (res);
 }
-
 
 int	ft_print_err(const char *error_msg, size_t n_context_str, ...)
 {

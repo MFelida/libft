@@ -20,7 +20,7 @@ static ssize_t	ft_puthex_fd(unsigned long n, char *map, int fd)
 
 	res = 0;
 	i = 0;
-	while (i < (2 * sizeof (unsigned long)) \
+	while (i < (2 * sizeof (unsigned long))
 		&& !((((unsigned long) n) >> ((15 - i) * 4)) & 0x0F))
 		i++;
 	while (i < (2 * sizeof (void *)))
