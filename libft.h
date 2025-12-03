@@ -6,7 +6,7 @@
 /*   By: mfelida <mfelida@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:22:20 by mfelida           #+#    #+#             */
-/*   Updated: 2025/08/28 16:10:02 by mifelida         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:43:16 by mifelida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int			ft_memcmp(void *s1, void *s2, size_t n);
 int			ft_atexit(void (*func)(void));
 _N void		ft_exit(int status);
 # undef _N
+
+void		ft_assert(const int check, ...)
+			__attribute__ ((sentinel));
 
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);

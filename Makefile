@@ -5,7 +5,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -I.
 
 SRC_DIR = src
-SRC_FILES = ft_atoi.c ft_atoi_base.c ft_bzero.c ft_calloc.c ft_isalnum.c \
+SRC_FILES = ft_assert.c ft_atoi.c ft_atoi_base.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 	ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_isspace.c ft_itoa.c \
 	ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
 	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c \
@@ -40,7 +40,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-debug: CFLAGS += -gdwarf-2 -O0
+debug: CFLAGS += -gdwarf-2 -O0 -DDEBUG
 debug: $(NAME)
 
 re: fclean all
