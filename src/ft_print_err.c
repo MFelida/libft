@@ -18,18 +18,16 @@
 
 #include "libft.h"
 
-static	int	_print_context(char **dest, size_t n_context_str, va_list args)
+static	int	_print_context(char **dest, va_list args)
 {
-	int			printf_ret;
 	int			len;
 	int			new_len;
 	const char	*va_str;
 
-	printf_ret = 0;
 	len = 0;
-	while (n_context_str > 0 && printf_ret >= 0)
+	va_str = va_arg(args, const char *);
+	while (va_str)
 	{
-		va_str = va_arg(args, const char *);
 		new_len = ft_strlen(*dest) + ft_strlen(va_str) + 2;
 		*dest = ft_realloc(*dest, new_len + 1, len + 1);
 		if (!*dest)
@@ -37,12 +35,12 @@ static	int	_print_context(char **dest, size_t n_context_str, va_list args)
 		len = new_len;
 		ft_strlcat(*dest, va_str, len + 1);
 		ft_strlcat(*dest, ": ", len + 1);
-		n_context_str--;
+		va_str = va_arg(args, const char *);
 	}
 	return (len);
 }
 
-int	ft_print_err(const char *error_msg, size_t n_context_str, ...)
+int	ft_print_err(const char *error_msg, ...)
 {
 	va_list	args;
 	int		res;
@@ -54,12 +52,9 @@ int	ft_print_err(const char *error_msg, size_t n_context_str, ...)
 	if (!buff)
 		return (-1);
 	res = 0;
-	if (n_context_str > 0)
-	{
-		va_start(args, n_context_str);
-		res = _print_context(&buff, n_context_str, args);
-		va_end(args);
-	}
+	va_start(args, error_msg);
+	res = _print_context(&buff, args);
+	va_end(args);
 	if (res < 0)
 		return (res);
 	buff = ft_realloc(buff, res + ft_strlen(error_msg) + 1, res + 1);

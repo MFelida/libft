@@ -93,7 +93,8 @@ char		*ft_gnl(int fd);
 
 int			ft_printf(const char *fmt, ...);
 int			ft_fprintf(int fd, const char *fmt, ...);
-int			ft_print_err(const char *error_msg, size_t n_context_str, ...);
+int			ft_print_err(const char *error_msg, ...)
+			__attribute__((sentinel));
 
 typedef struct s_list
 {
