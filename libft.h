@@ -13,6 +13,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
 # include <stddef.h>
 # include <unistd.h>
 
@@ -51,9 +52,6 @@ int			ft_atexit(void (*func)(void));
 _N void		ft_exit(int status);
 # undef _N
 
-void		ft_assert(const int check, ...)
-			__attribute__ ((sentinel));
-
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
@@ -63,7 +61,7 @@ char		*ft_itoa(int n);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 ssize_t		ft_putchar_fd(char c, int fd);
-ssize_t		ft_putstr_fd(char *s, int fd);
+ssize_t		ft_putstr_fd(const char *s, int fd);
 ssize_t		ft_putendl_fd(char *s, int fd);
 ssize_t		ft_putnbr_fd(int n, int fd);
 ssize_t		ft_putuint_fd(unsigned int n, int fd);
@@ -96,6 +94,38 @@ int			ft_printf(const char *fmt, ...);
 int			ft_fprintf(int fd, const char *fmt, ...);
 int			ft_print_err(const char *error_msg, ...)
 			__attribute__((sentinel));
+
+# ifdef DEBUG
+
+__attribute__ ((sentinel)) static
+inline void	ft_assert(const int check, ...)
+{
+	va_list		v;
+	const char	*msg;
+
+	if (check)
+		return ;
+	ft_putstr_fd("Assertion Error", STDERR_FILENO);
+	va_start(v, check);
+	msg = va_arg(v, char *);
+	while (msg)
+	{
+		ft_putstr_fd(": ", STDERR_FILENO);
+		ft_putstr_fd(msg, STDERR_FILENO);
+		msg = va_arg(v, char *);
+	}
+	va_end(v);
+	ft_putchar_fd('\n', STDERR_FILENO);
+	ft_exit(1);
+}
+# else
+
+__attribute__ ((sentinel)) static
+inline void	ft_assert(const int check, ...)
+{
+	(void) check;
+}
+# endif
 
 typedef struct s_list
 {

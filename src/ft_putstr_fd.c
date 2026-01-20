@@ -14,7 +14,7 @@
 
 #include <unistd.h>
 
-ssize_t	ft_putstr_fd(char *s, int fd)
+ssize_t	ft_putstr_fd(const char *s, int fd)
 {
 	if (!s)
 		return (ft_putstr_fd("(null)", fd));
