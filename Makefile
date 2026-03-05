@@ -28,6 +28,12 @@ AFLAGS = -crs
 
 GNL_BUFFER_SIZE = 1024
 
+TEST_DIR = tests
+TEST_FILES = test_main.c test_char.c test_str.c test_str_alloc.c \
+	test_mem.c test_conv.c test_output.c test_lst.c test_gnl.c
+TEST_SRCS = $(addprefix $(TEST_DIR)/,$(TEST_FILES))
+TEST_BIN = run_tests
+
 all: CFLAGS += -O3
 all: $(NAME)
 
@@ -51,4 +57,12 @@ clean:
 fclean: clean
 	@ rm -f $(NAME)
 
-.PHONY: clean fclean re all debug
+test: $(NAME)
+	$(CC) -Wall -Wextra -I. -I$(TEST_DIR) -DGNL_BUFFER_SIZE="$(GNL_BUFFER_SIZE)" \
+		$(TEST_SRCS) -L. -lft -lm -o $(TEST_BIN)
+	./$(TEST_BIN)
+
+testclean:
+	@ rm -f $(TEST_BIN)
+
+.PHONY: clean fclean re all debug test testclean

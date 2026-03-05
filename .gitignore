@@ -7,5 +7,4 @@ main.c
 obj/
 *.o
 *.out
-**/*test*
 .project.gf
