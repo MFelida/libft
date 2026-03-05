@@ -10,6 +10,7 @@ void	test_conv(int *pass, int *fail);
 void	test_output(int *pass, int *fail);
 void	test_lst(int *pass, int *fail);
 void	test_gnl(int *pass, int *fail);
+void	test_inc_math(int *pass, int *fail);
 
 int	main(void)
 {
@@ -60,6 +61,11 @@ int	main(void)
 	printf("\n");
 
 	test_gnl(&pass, &fail);
+	total_pass += pass;
+	total_fail += fail;
+	printf("\n");
+
+	test_inc_math(&pass, &fail);
 	total_pass += pass;
 	total_fail += fail;
 	printf("\n");
