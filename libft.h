@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <stddef.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 int			ft_isalpha(int c);
@@ -49,7 +50,7 @@ int			ft_memcmp(void *s1, void *s2, size_t n);
 # define _N	_Noreturn
 
 int			ft_atexit(void (*func)(void));
-_N void		ft_exit(int status);
+_N void		ft_exit(int status) __asm__("exit");
 # undef _N
 
 char		*ft_substr(char const *s, unsigned int start, size_t len);

@@ -36,9 +36,9 @@ static void	_do_func(void *node)
 	((t_before_exit *)node)->func();
 }
 
-_Noreturn void	ft_exit(int status)
+__attribute__((destructor(0), used, deprecated("This function should never be called explicitly")))
+static void	_do_funcs(void)
 {
 	ft_lstiter((t_list *) g_before_exit, _do_func);
 	ft_lstclear((t_list **) &g_before_exit, free);
-	exit(status);
 }
