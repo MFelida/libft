@@ -24,10 +24,10 @@ static size_t	_count_digits(const char *s)
 	return (i);
 }
 
-static size_t _sign(const char *s)
+static size_t	_sign(const char *s)
 {
-	int ret;
-	
+	int	ret;
+
 	ret = 1;
 	while (*s == '-' || *s == '+')
 		if (*s++ == '-')

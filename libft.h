@@ -47,11 +47,7 @@ void		*ft_memmove(void *dest, void const *src, size_t n);
 void		*ft_memchr(void *s, int c, size_t n);
 int			ft_memcmp(void *s1, void *s2, size_t n);
 
-# define _N	_Noreturn
-
 int			ft_atexit(void (*func)(void));
-_N void		ft_exit(int status) __asm__("exit");
-# undef _N
 
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);

@@ -36,7 +36,8 @@ static void	_do_func(void *node)
 	((t_before_exit *)node)->func();
 }
 
-__attribute__((destructor(0), used, deprecated("This function should never be called explicitly")))
+__attribute__((destructor(0), used,
+				deprecated("This function should never be called explicitly")))
 static void	_do_funcs(void)
 {
 	ft_lstiter((t_list *) g_before_exit, _do_func);
