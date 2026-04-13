@@ -29,7 +29,7 @@ AFLAGS = -crs
 
 GNL_BUFFER_SIZE = 1024
 
-TEST_DIR = tests
+TEST_DIR = .tests
 TEST_FILES = test_main.c test_char.c test_str.c test_str_alloc.c \
 	test_mem.c test_conv.c test_output.c test_lst.c test_gnl.c test_inc_math.c
 TEST_SRCS = $(addprefix $(TEST_DIR)/,$(TEST_FILES))
