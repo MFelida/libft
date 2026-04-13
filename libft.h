@@ -114,7 +114,7 @@ inline void	ft_assert(const int check, ...)
 	}
 	va_end(v);
 	ft_putchar_fd('\n', STDERR_FILENO);
-	ft_exit(1);
+	exit(1);
 }
 # else
 
